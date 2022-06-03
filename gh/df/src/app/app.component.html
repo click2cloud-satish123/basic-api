@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<router-outlet></router-outlet>
+<html>
+  <router-outlet></router-outlet>
+<head>
+    <title>
+     
+    </title>
+</head>
+
+<body>
+  <h1 style="color:rgb(30, 184, 33);text-align : center">Product Details</h1>
+    <table>
+        <tr>
+            <td>
+                <form #f = "ngForm" (ngSubmit)="onSubmit(f)"  autocomplete="off">
+                    <div>
+                        <label>Product Name</label><label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
+                        <input ngModel type="text" name="productName" id="productName">
+                    </div>
+                    <div>
+                        <label>Rating</label>
+                        <input ngModel type="text" name="rating" id="rating">
+                    </div>
+                    <div>
+                        <label>Usermail</label>
+                        <input ngModel type="text" name="usermail" id="usermail">
+                    </div>
+                    <div>
+                        <label>Brand</label>
+                        <input ngModel type="text" name="brand" id="brand">
+                    </div>
+                    
+                        <button type="submit" style="color:green">submit</button>
+                    
+                    
+                      
+                  
+                </form>
+            </td>
+            <td>
+                <table class="list" id="employeeList">
+                    <thead>
+                        <tr><th style="color:green">Id</th>
+                            <th style="color:green">Product </th>
+                            <th style="color:green">Rating</th>
+                            <th style="color:green">UserMail</th>
+                            <th style="color:green">Brand</th>
+                            <th style="color:green"> Actions</th>
+                         
+                        </tr>
+
+
+                    </thead>
+                    <tbody>
+                      <tr *ngFor = "let d of reqdata;let i=index">
+                        
+                          <td>{{d.id}}</td>
+                          <td>{{d.fullname}}</td> 
+                          <td>{{d.emp_code}}</td>
+                          <td>{{d.email}}</td>
+                          <td>{{d.mobile}}</td>
+                        
+                    <td>
+                        <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editEmployee" (click)="onEdit(i)" >Edit</button>
+                        <button type="button" class="btn btn-outline-danger" (click) = onDelete(i)   >Delete</button>
+                    </td>
+                      </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+              <div class="modal fade" id="editEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Edit employee details</h5>
+                     
+                    </div>
+                    <div class="modal-body">
+                        <form >
+                            <div class="mb-3">
+                                <label  class="form-label">Product Name </label>
+                                <input  #prodctname type="text"  class="form-control" id="name"  value="{{productname}}">
+                              </div>
+                            <div class="mb-3">
+                              <label  class="form-label">Rating </label>
+                              <input #rating type="text"  class="form-control"  value="{{useremail}}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email </label>
+                                <input #email type="text"  class="form-control"   value="{{useremail}}">
+                              </div>
+                              <div class="mb-3">
+                                <label  class="form-label">Brand </label>
+                                <input  #mail type="text"  class="form-control"   value="{{brand}}">
+                              </div>
+                            <div class="modal-footer">
+                                
+                                <button type="submit" class="btn btn-outline-success"  data-bs-dismiss="modal"   >Update </button>
+                              </div>
+                          </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+        </tr>
+
+    </table>
+</body>
+
+</html>
+<table>
+
+</table>
